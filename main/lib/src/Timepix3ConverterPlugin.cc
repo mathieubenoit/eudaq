@@ -33,7 +33,8 @@ using eutelescope::EUTELESCOPE;
 
 #define WRITE_TOT
 
- using namespace std;
+
+using namespace std;
 
 namespace eudaq {
 
