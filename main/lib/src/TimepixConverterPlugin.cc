@@ -25,7 +25,7 @@
 #include "EUTelSetupDescription.h"
 #include "EUTelEventImpl.h"
 //#include "EUTelSparseDataImpl.h"
-#include "EUTelSimpleSparsePixel.h"
+#include "EUTelGenericSparsePixel.h"
 using eutelescope::EUTELESCOPE;
 #endif
 #define MATRIX_SIZE 65536
@@ -451,7 +451,7 @@ namespace eudaq {
 	zsFrame= new TrackerDataImpl;
 	currentDetector->setMode( mode );
 	zsDataEncoder["sensorID"] = plane.ID();
-	zsDataEncoder["sparsePixelType"] = eutelescope::kEUTelSimpleSparsePixel;
+	zsDataEncoder["sparsePixelType"] = eutelescope::kEUTelGenericSparsePixel;
 	zsDataEncoder.setCellID( zsFrame );
 	
 	size_t nPixel = plane.HitPixels();
@@ -462,6 +462,7 @@ namespace eudaq {
 	  // Note X and Y are swapped - for 2010 TB DEPFET module was rotated at 90 degree.
 	  zsFrame->chargeValues().push_back(plane.GetX(i));
 	  zsFrame->chargeValues().push_back(plane.GetY(i));
+	  zsFrame->chargeValues().push_back(ZSDataTOT[i]);
 	  zsFrame->chargeValues().push_back(ZSDataTOT[i]);
 	}
 	
