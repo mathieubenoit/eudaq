@@ -31,7 +31,7 @@ using eutelescope::EUTELESCOPE;
 #endif
 #define MATRIX_SIZE 65536
 
-#define WRITE_TOT
+
 
 
 using namespace std;
